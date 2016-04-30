@@ -4,6 +4,7 @@ import tatsu.maids.core.MaidConfig;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import tatsu.maids.item.ItemCollection;
 
 /**
  * Created by Tatsu on 4/12/2016.
@@ -18,6 +19,7 @@ public abstract class CommonProxy {
 
         //block registry goes here
         //Item registry goes here
+        ItemCollection.init();
     }
 
     public void init(FMLInitializationEvent event)

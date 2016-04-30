@@ -6,7 +6,7 @@ package tatsu.maids.info;
 public class proxy {
 
 
-    public static final String CLIENTPROXY = "ClientProxy";
-    public static final String COMMONPROXY = "CommonProxy";
+    public static final String CLIENTPROXY = "tatsu.maids.proxy.ClientProxy";
+    public static final String COMMONPROXY = "tatsu.maids.proxy.CommonProxy";
 
 }

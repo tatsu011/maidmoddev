@@ -1,7 +1,9 @@
 package tatsu.maids.core;
 
 
+import net.minecraftforge.common.MinecraftForge;
 import tatsu.maids.entities.entities;
+import tatsu.maids.events.MaidsEventHandler;
 import tatsu.maids.info.core;
 import tatsu.maids.info.gui;
 import tatsu.maids.info.proxy;
@@ -33,8 +35,11 @@ public class MaidMod {
     {
         Log.info("Please wait patently, maids are being fed.");
         prox.preInit(event);
-        ItemCollection.init();
+        //ItemCollection.init();
         entities.init();
+
+        //Register the maid's capabilities.
+        MinecraftForge.EVENT_BUS.register(new MaidsEventHandler());
     }
 
 

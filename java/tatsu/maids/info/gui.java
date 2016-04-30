@@ -5,5 +5,5 @@ package tatsu.maids.info;
  */
 public class gui {
 
-    public static  final String CONFIG_GUI_FACTORY = "GuiFactory";
+    public static  final String CONFIG_GUI_FACTORY = "tatsu.maids.gui.GuiFactory";
 }
