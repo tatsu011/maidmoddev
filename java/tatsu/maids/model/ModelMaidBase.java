@@ -3,12 +3,18 @@ package tatsu.maids.model;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.MathHelper;
+import tatsu.maids.api.render.EmptyMaidModel;
+import tatsu.maids.api.render.ICustomMaidModel;
+import tatsu.maids.entities.EntityMaid;
+import tatsu.maids.info.core;
 
 /**
  * ModelBiped - Either Mojang or a mod author
  * Created using Tabula 4.1.1
  */
-public class ModelMaidBase extends ModelBase {
+public class ModelMaidBase extends EmptyMaidModel {
     public ModelRenderer RightArm;
     public ModelRenderer LeftLeg;
     public ModelRenderer Head;
@@ -63,21 +69,66 @@ public class ModelMaidBase extends ModelBase {
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
-        this.RightArm.render(f5);
-        this.LeftLeg.render(f5);
-        this.Torso.render(f5);
-        this.Head.render(f5);
-        this.RightLeg.render(f5);
-        this.LeftArm.render(f5);
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float Scale) {
+
+        super.render(entity, f, f1, f2, f3, f4, Scale);
+        setRotationAngles(entity, f, f1, f2, f3, f4, Scale);
+
+        this.RightArm.render(Scale);
+        this.LeftLeg.render(Scale);
+        this.Torso.render(Scale);
+        this.Head.render(Scale);
+        this.RightLeg.render(Scale);
+        this.LeftArm.render(Scale);
     }
+
+
+
+
 
     /**
      * This is a helper function from Tabula to set the rotation of model parts
      */
-    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-        modelRenderer.rotateAngleX = x;
-        modelRenderer.rotateAngleY = y;
-        modelRenderer.rotateAngleZ = z;
+
+
+    @Override
+    public float getWidth() {
+        return 1F;
     }
+
+    @Override
+    public float getHeight() {
+        return 2F;
+    }
+
+    @Override
+    public ModelRenderer RightArm() {
+        return RightArm;
+    }
+
+    @Override
+    public ModelRenderer LeftArm() {
+        return LeftArm;
+    }
+
+    @Override
+    public ModelRenderer Head() {
+        return Head;
+    }
+
+    @Override
+    public ModelRenderer Torso() {
+        return Torso;
+    }
+
+    @Override
+    public ModelRenderer RightLeg() {
+        return RightLeg;
+    }
+
+    @Override
+    public ModelRenderer LeftLeg() {
+        return LeftLeg;
+    }
+
 }

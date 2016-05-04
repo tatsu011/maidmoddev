@@ -11,6 +11,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.EmptyHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
+import tatsu.maids.entities.EntityMaid;
 import tatsu.maids.gui.MaidInventory;
 import tatsu.maids.info.core;
 
@@ -31,7 +32,10 @@ public class MaidsEventHandler {
 
         public MyCapProvider(Entity e)
         {
-            handler =  new MaidInventory();
+            if(e.getClass() == EntityMaid.class)
+                handler =  new MaidInventory();
+            else
+                handler = null;
         }
 
         @SuppressWarnings("unchecked")

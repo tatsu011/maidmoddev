@@ -1,5 +1,6 @@
 package tatsu.maids.render;
 
+import tatsu.maids.api.render.EmptyMaidModel;
 import tatsu.maids.entities.EntityMaid;
 import tatsu.maids.info.core;
 import tatsu.maids.model.ModelMaidBase;
@@ -21,7 +22,7 @@ public class RenderMaid extends Render {
         shadowSize = 0.5f;
     }
 
-    private ModelMaidBase model;
+    private EmptyMaidModel model;
     private static final ResourceLocation texture = new ResourceLocation(core.MOD_ID, "textures/models/maid.png");
 
     @Override
@@ -45,4 +46,9 @@ public class RenderMaid extends Render {
     protected ResourceLocation getEntityTexture(Entity entity) {
         return texture;
     }
+
+
+
+
+
 }

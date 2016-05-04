@@ -28,6 +28,6 @@ public class TaskIdle extends BaseTask {
 
     @Override
     public boolean shouldExecute() {
-        return false;
+        return Maid.isIdle;
     }
 }

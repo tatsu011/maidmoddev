@@ -7,9 +7,11 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.EnumHandSide;
 import net.minecraft.util.math.MathHelper;
+import tatsu.maids.api.render.EmptyMaidModel;
 
 
-public class ModelMaid extends ModelBase
+public class ModelMaid extends EmptyMaidModel
+
 {
   //fields
     ModelRenderer bipedHead;
@@ -25,7 +27,7 @@ public class ModelMaid extends ModelBase
 
     ModelBiped.ArmPose LeftArmPose = ModelBiped.ArmPose.EMPTY;
     ModelBiped.ArmPose RightArmPose = ModelBiped.ArmPose.EMPTY;
-    public boolean RightHanded = true;
+    //public boolean RightHanded = true;
 
   
   public ModelMaid()
@@ -265,4 +267,43 @@ public class ModelMaid extends ModelBase
     return p_187072_1_ instanceof EntityLivingBase ? ((EntityLivingBase)p_187072_1_).getPrimaryHand() : EnumHandSide.RIGHT;
   }
 
+    @Override
+    public float getWidth() {
+        return 1F;
+    }
+
+    @Override
+    public float getHeight() {
+        return 2F;
+    }
+
+    @Override
+    public ModelRenderer RightArm() {
+        return bipedRightArm;
+    }
+
+    @Override
+    public ModelRenderer LeftArm() {
+        return bipedLeftArm;
+    }
+
+    @Override
+    public ModelRenderer Head() {
+        return bipedHead;
+    }
+
+    @Override
+    public ModelRenderer Torso() {
+        return bipedBody;
+    }
+
+    @Override
+    public ModelRenderer RightLeg() {
+        return bipedRightLeg;
+    }
+
+    @Override
+    public ModelRenderer LeftLeg() {
+        return bipedLeftLeg;
+    }
 }

@@ -13,7 +13,7 @@ public abstract class BaseTask extends EntityAIBase {
 
     public abstract Item GetTaskCommands();
 
-    private EntityMaid Maid;
+    protected EntityMaid Maid;
 
     public int getTaskDifficulty() {
         return 1;

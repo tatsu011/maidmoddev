@@ -4,10 +4,17 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.IEntityOwnable;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIOpenDoor;
+import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.ItemStackHandler;
 
 import java.util.UUID;
 
@@ -17,10 +24,37 @@ import java.util.UUID;
 
 public class EntityMaid extends EntityAgeable implements IEntityOwnable
 {
+
+    public ItemStackHandler itemHandler;
+
+
+    //Animation Variables.
+    public boolean isIdle = false;
+
+
+
     public EntityMaid(World worldIn) {
         super(worldIn);
 
+        this.setSize(1F,2F);
+        itemHandler = new ItemStackHandler(23)
+        {
+            @Override
+            protected void onContentsChanged(int slot)
+            {
+                super.onContentsChanged(slot);
+                //EntityMaid.this.markDirty();
+            }
+        };
 
+    }
+
+
+    protected void initEntityAI()
+    {
+        this.tasks.addTask(0, new EntityAISwimming(this));
+        this.tasks.addTask(1, new EntityAIWander(this, 0.6D));
+        this.tasks.addTask(9, new EntityAIOpenDoor(this, true));
     }
 
     @Override
@@ -31,6 +65,9 @@ public class EntityMaid extends EntityAgeable implements IEntityOwnable
     @Override
     public boolean processInteract(EntityPlayer player, EnumHand p_184645_2_, ItemStack stack)
     {
+        isIdle = true;
+        //basically you stop moving once you are right clicked.
+
         return true;
     }
 
@@ -53,16 +90,16 @@ public class EntityMaid extends EntityAgeable implements IEntityOwnable
     }
 
     @Override
-    public boolean hasCapability(net.minecraftforge.common.capabilities.Capability<?> capability, net.minecraft.util.EnumFacing facing)
+    public boolean hasCapability(Capability<?> capability, EnumFacing facing)
     {
+        if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) return true;
         return super.hasCapability(capability, facing);
-
-
     }
 
     @Override
-    public <T> T getCapability(net.minecraftforge.common.capabilities.Capability<T> capability, net.minecraft.util.EnumFacing facing)
+    public <T> T getCapability(Capability<T> capability, EnumFacing facing)
     {
+        if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) return (T) itemHandler;
         return super.getCapability(capability, facing);
     }
 

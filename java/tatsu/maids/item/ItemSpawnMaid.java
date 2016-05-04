@@ -33,12 +33,12 @@ public class ItemSpawnMaid extends ItemMaidBase {
             EntityMaid maid = new EntityMaid(worldIn);
             Log.info("Created maid object and set position.");
 
-            maid.setHomePosAndDistance(pos.add(0,1,0), 0);
+            maid.setHomePosAndDistance(pos, 0);
 
-            System.out.println("SPawning Maid");
+            Log.info("SPawning Maid");
             worldIn.spawnEntityInWorld(maid);
-            System.out.println("Maid Spawned Successfully!");
-            return EnumActionResult.SUCCESS;
+            Log.info("Maid Spawned Successfully at pos", pos);
+            return EnumActionResult.PASS;
         }
 
 
