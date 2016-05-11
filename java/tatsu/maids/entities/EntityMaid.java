@@ -11,10 +11,15 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.text.Style;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+import tatsu.maids.api.render.EmptyMaidModel;
+import tatsu.maids.core.MaidMod;
+import tatsu.maids.util.MaidModelRegistry;
+import tatsu.maids.util.MaidStyleNormal;
 
 import java.util.UUID;
 
@@ -27,6 +32,8 @@ public class EntityMaid extends EntityAgeable implements IEntityOwnable
 
     public ItemStackHandler itemHandler;
 
+    String StyleID;
+
 
     //Animation Variables.
     public boolean isIdle = false;
@@ -36,6 +43,8 @@ public class EntityMaid extends EntityAgeable implements IEntityOwnable
     public EntityMaid(World worldIn) {
         super(worldIn);
 
+        StyleID = MaidModelRegistry.getRandomMaidStyle();
+        MaidMod.Log.info("Style for maid: " + StyleID);
         this.setSize(1F,2F);
         itemHandler = new ItemStackHandler(23)
         {
@@ -52,9 +61,9 @@ public class EntityMaid extends EntityAgeable implements IEntityOwnable
 
     protected void initEntityAI()
     {
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(1, new EntityAIWander(this, 0.6D));
-        this.tasks.addTask(9, new EntityAIOpenDoor(this, true));
+        //this.tasks.addTask(0, new EntityAISwimming(this));
+        //this.tasks.addTask(1, new EntityAIWander(this, 0.6D));
+        //this.tasks.addTask(9, new EntityAIOpenDoor(this, true));
     }
 
     @Override
@@ -65,7 +74,7 @@ public class EntityMaid extends EntityAgeable implements IEntityOwnable
     @Override
     public boolean processInteract(EntityPlayer player, EnumHand p_184645_2_, ItemStack stack)
     {
-        isIdle = true;
+        isIdle = !isIdle;
         //basically you stop moving once you are right clicked.
 
         return true;
@@ -123,4 +132,18 @@ public class EntityMaid extends EntityAgeable implements IEntityOwnable
     }
 
 */
+
+    public EmptyMaidModel getModel()
+    {
+        return MaidModelRegistry.getModel(StyleID);
+    }
+
+
+    public MaidStyleNormal getStyle()
+    {
+        return MaidModelRegistry.getStyle(StyleID);
+    }
+
+
+
 }

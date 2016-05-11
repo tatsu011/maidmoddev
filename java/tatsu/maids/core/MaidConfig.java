@@ -17,6 +17,7 @@ public class MaidConfig
 
 
     public static boolean EnableHeadMaid = true;
+    public static boolean EnableBustyMaids = true;
 
     public static void init(File cfg)
     {
@@ -39,6 +40,7 @@ public class MaidConfig
     public void loadConfig()
     {
         EnableHeadMaid = config.getBoolean("EnableHeadMaid",config.CATEGORY_GENERAL, true, "Enables the Head Maid");
+        EnableBustyMaids = config.getBoolean("EnableBustyMaids",config.CATEGORY_CLIENT, true, "Enables maids with large busts.");
 
         if(config.hasChanged())
         {

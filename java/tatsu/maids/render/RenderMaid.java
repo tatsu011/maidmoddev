@@ -18,18 +18,17 @@ public class RenderMaid extends Render {
     public RenderMaid(RenderManager manager)
     {
         super(manager);
-        model = new ModelMaidBase();
+        //model = new ModelMaidBase();
         shadowSize = 0.5f;
     }
 
     private EmptyMaidModel model;
-    private static final ResourceLocation texture = new ResourceLocation(core.MOD_ID, "textures/models/maid.png");
 
     @Override
     public void doRender(Entity entity, double x, double y, double z, float yaw, float partialTickTime)
     {
         EntityMaid maid = (EntityMaid)entity;
-
+        model = maid.getModel();
         GL11.glPushMatrix();
         //Magic happens.
         GL11.glTranslatef((float)x, (float)y + 1.5f, (float)z);
@@ -44,7 +43,9 @@ public class RenderMaid extends Render {
 
     @Override
     protected ResourceLocation getEntityTexture(Entity entity) {
-        return texture;
+        EntityMaid maid = (EntityMaid)entity;
+
+        return maid.getStyle().Texture;
     }
 
 

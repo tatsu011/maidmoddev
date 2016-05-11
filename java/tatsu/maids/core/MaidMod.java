@@ -17,6 +17,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import tatsu.maids.util.MaidModelRegistry;
 
 
 @Mod(modid = core.MOD_ID, version = core.VERSION, name = core.MOD_NAME, guiFactory = gui.CONFIG_GUI_FACTORY)
@@ -34,6 +35,7 @@ public class MaidMod {
     public void preInit(FMLPreInitializationEvent event)
     {
         Log.info("Please wait patently, maids are being fed.");
+        MaidModelRegistry.Init();
         prox.preInit(event);
         //ItemCollection.init();
         entities.init();
