@@ -4,9 +4,9 @@ package tatsu.maids.core;
 import net.minecraftforge.common.MinecraftForge;
 import tatsu.maids.entities.entities;
 import tatsu.maids.events.MaidsEventHandler;
-import tatsu.maids.info.core;
-import tatsu.maids.info.gui;
-import tatsu.maids.info.proxy;
+import tatsu.maids.info.CORE;
+import tatsu.maids.info.GUI;
+import tatsu.maids.info.PROXY;
 import tatsu.maids.item.ItemCollection;
 import tatsu.maids.proxy.CommonProxy;
 import net.minecraftforge.fml.common.Mod;
@@ -20,13 +20,13 @@ import org.apache.logging.log4j.Logger;
 import tatsu.maids.util.MaidModelRegistry;
 
 
-@Mod(modid = core.MOD_ID, version = core.VERSION, name = core.MOD_NAME, guiFactory = gui.CONFIG_GUI_FACTORY)
+@Mod(modid = CORE.MOD_ID, version = CORE.VERSION, name = CORE.MOD_NAME, guiFactory = gui.CONFIG_GUI_FACTORY)
 public class MaidMod {
 
-    @Mod.Instance(core.MOD_ID)
+    @Mod.Instance(CORE.MOD_ID)
     public static MaidMod instance;
 
-    @SidedProxy(clientSide = proxy.CLIENTPROXY,serverSide = proxy.COMMONPROXY)
+    @SidedProxy(clientSide = PROXY.CLIENTPROXY,serverSide = PROXY.COMMONPROXY)
     public static CommonProxy prox;
 
     public static Logger Log = LogManager.getLogger("MaidMod");

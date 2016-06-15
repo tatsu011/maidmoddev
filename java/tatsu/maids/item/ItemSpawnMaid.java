@@ -1,7 +1,7 @@
 package tatsu.maids.item;
 
 import tatsu.maids.entities.EntityMaid;
-import tatsu.maids.info.items;
+import tatsu.maids.info.ITEMS;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
@@ -20,7 +20,7 @@ public class ItemSpawnMaid extends ItemMaidBase {
 
     public ItemSpawnMaid() {
 
-        super(items.SPAWNMAID_REGNAME);
+        super(ITEMS.SPAWNMAID_REGNAME);
 
     }
 

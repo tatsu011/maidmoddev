@@ -3,7 +3,7 @@ package tatsu.maids.info;
 /**
  * Created by Tatsu on 4/18/2016.
  */
-public class nbtnames {
+public class NBTNAMES {
 
 
     public static final String BOUND_PLAYERNAME = "boundPlayerName";

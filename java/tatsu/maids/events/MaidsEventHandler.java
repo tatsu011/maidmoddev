@@ -13,7 +13,7 @@ import net.minecraftforge.items.wrapper.EmptyHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
 import tatsu.maids.entities.EntityMaid;
 import tatsu.maids.gui.MaidInventory;
-import tatsu.maids.info.core;
+import tatsu.maids.info.CORE;
 
 /**
  * Created by Tatsu on 4/29/2016.
@@ -23,7 +23,7 @@ public class MaidsEventHandler {
     @SubscribeEvent
     public void onCapEvent(AttachCapabilitiesEvent.Entity e)
     {
-        e.addCapability(new ResourceLocation(core.MOD_ID, "MaidInventory"), new MyCapProvider(e.getEntity()));
+        e.addCapability(new ResourceLocation(CORE.MOD_ID, "MaidInventory"), new MyCapProvider(e.getEntity()));
     }
 
     public class MyCapProvider implements ICapabilityProvider

@@ -3,7 +3,7 @@ package tatsu.maids.info;
 /**
  * Created by Tatsu on 4/12/2016.
  */
-public class core {
+public class CORE {
 
 
     public static final String MOD_ID = "maidmod";

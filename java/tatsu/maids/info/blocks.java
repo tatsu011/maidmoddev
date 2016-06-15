@@ -3,7 +3,7 @@ package tatsu.maids.info;
 /**
  * Created by Tatsu on 4/12/2016.
  */
-public class blocks {
+public class BLOCKS {
 
     public static final String MAIDTASKTABLE_UNLOCALIZEDNAME = "MaidTaskTable";
     public static final String SPINNINGWHEEL_UNLOCALIZEDNAME = "SpinningWheel";
