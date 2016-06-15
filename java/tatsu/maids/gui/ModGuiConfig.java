@@ -1,7 +1,7 @@
 package tatsu.maids.gui;
 
 import tatsu.maids.core.MaidConfig;
-import tatsu.maids.info.core;
+import tatsu.maids.info.CORE;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
@@ -15,7 +15,7 @@ public class ModGuiConfig extends GuiConfig {
     ModGuiConfig(GuiScreen parentScreen) {
         super(  parentScreen,
                 new ConfigElement(MaidConfig.config.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(),
-                core.MOD_ID,
+                CORE.MOD_ID,
                 true, //Disabling head maids will require the removal of every head maid and unregisters their entities.
                 true,
                 GuiConfig.getAbridgedConfigPath(MaidConfig.config.toString()));

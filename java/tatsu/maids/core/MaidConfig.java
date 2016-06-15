@@ -1,6 +1,6 @@
 package tatsu.maids.core;
 
-import tatsu.maids.info.core;
+import tatsu.maids.info.CORE;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -31,7 +31,7 @@ public class MaidConfig
     @SubscribeEvent
     public void onConfigurationChangedEvent(ConfigChangedEvent event)
     {
-        if(event.getModID().equalsIgnoreCase(core.MOD_ID))
+        if(event.getModID().equalsIgnoreCase(CORE.MOD_ID))
         {
             loadConfig();
         }

@@ -1,14 +1,8 @@
 package tatsu.maids.model;
 
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
 import tatsu.maids.api.render.EmptyMaidModel;
-import tatsu.maids.api.render.ICustomMaidModel;
-import tatsu.maids.entities.EntityMaid;
-import tatsu.maids.info.core;
 
 /**
  * ModelBiped - Either Mojang or a mod author

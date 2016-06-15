@@ -20,7 +20,7 @@ import org.apache.logging.log4j.Logger;
 import tatsu.maids.util.MaidModelRegistry;
 
 
-@Mod(modid = CORE.MOD_ID, version = CORE.VERSION, name = CORE.MOD_NAME, guiFactory = gui.CONFIG_GUI_FACTORY)
+@Mod(modid = CORE.MOD_ID, version = CORE.VERSION, name = CORE.MOD_NAME, guiFactory = GUI.CONFIG_GUI_FACTORY)
 public class MaidMod {
 
     @Mod.Instance(CORE.MOD_ID)
